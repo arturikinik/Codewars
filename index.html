@@ -10,7 +10,7 @@
     
     <script>
     /*
-    Задание
+    1 Задание
 Если мы перечислим все натуральные числа до 10, кратные 3 или 5, мы получим 3, 5, 6 и 9. Сумма этих кратных равна 23.
 
 Завершите решение так, чтобы оно возвращало сумму всех чисел, кратных 3 или 5, меньше переданного числа.
@@ -26,7 +26,29 @@
                 }
             }
         return(sum);
-}
-       console.log(solution(-100))</script>
+    }
+       console.log(solution(-100))
+    </script>
+
+    <script>
+      /*
+      2Задание
+      Функция заменяющая все гласные на "" и возвращающая результат*/
+    function disemvowel(str) {
+        return (str.replace(/[aeiou]/gi, ""));
+    }
+    </script>
+
+    <script>
+    /*
+    3Задание
+    Функция реверсирующая все слова состоящие из более 5 символов*/
+    function spinWords(words){
+    return words.split(' ').map(function (word) {
+      return (word.length > 4) ? word.split('').reverse().join('') : word;
+    }).join(' ');
+  }
+    </script>
+
 </body>
 </html>
