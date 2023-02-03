@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <script>
-    /*
+      /*
     1 Задание
 Если мы перечислим все натуральные числа до 10, кратные 3 или 5, мы получим 3, 5, 6 и 9. Сумма этих кратных равна 23.
 
@@ -17,38 +16,93 @@
 Кроме того, если число отрицательное, верните 0 (для языков, в которых они есть).
 
 Примечание. Если число кратно и 3, и 5, считайте его только один раз.*/
-    function solution(number){
+      function solution(number) {
         let sum = 0;
-        let count= 0;
-            for (; count<number; count++){
-                if (count%3==0 || count%5==0){
-                    sum = sum + count;
-                }
-            }
-        return(sum);
-    }
-       console.log(solution(-100))
+        let count = 0;
+        for (; count < number; count++) {
+          if (count % 3 == 0 || count % 5 == 0) {
+            sum = sum + count;
+          }
+        }
+        return sum;
+      }
+      console.log(solution(-100));
     </script>
 
     <script>
       /*
       2Задание
       Функция заменяющая все гласные на "" и возвращающая результат*/
-    function disemvowel(str) {
-        return (str.replace(/[aeiou]/gi, ""));
-    }
+      function disemvowel(str) {
+        return str.replace(/[aeiou]/gi, "");
+      }
     </script>
 
     <script>
-    /*
+      /*
     3Задание
     Функция реверсирующая все слова состоящие из более 5 символов*/
-    function spinWords(words){
-    return words.split(' ').map(function (word) {
-      return (word.length > 4) ? word.split('').reverse().join('') : word;
-    }).join(' ');
-  }
+      function spinWords(words) {
+        return words
+          .split(" ")
+          .map(function (word) {
+            return word.length > 4 ? word.split("").reverse().join("") : word;
+          })
+          .join(" ");
+      }
     </script>
-
-</body>
+    <script>
+      /*
+    4Задание
+    Рекурсивная функция складывающая составляющие числа*/
+      function digitalRoot(n) {
+        if (n < 10) return n;
+        do {
+          var sum = 0;
+          sum += n
+            .toString()
+            .split("")
+            .reduce((acc, d) => {
+              return acc + +d;
+            }, 0);
+          n = sum;
+        } while (sum > 9);
+        return sum;
+      }
+    </script>
+    <script>
+      /*
+  5Задание
+  Функция выдающая сообщение о кол-ве лайков*/
+      function likes(names) {
+        names = names || [];
+        switch (names.length) {
+          case 0:
+            return "no one likes this";
+            break;
+          case 1:
+            return names[0] + " likes this";
+            break;
+          case 2:
+            return names[0] + " and " + names[1] + " like this";
+            break;
+          case 3:
+            return (
+              names[0] + ", " + names[1] + " and " + names[2] + " like this"
+            );
+            break;
+          default:
+            return (
+              names[0] +
+              ", " +
+              names[1] +
+              " and " +
+              (names.length - 2) +
+              " others like this"
+            );
+        }
+      }
+    </script>
+    <script></script>
+  </body>
 </html>
