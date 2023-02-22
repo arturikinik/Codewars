@@ -106,12 +106,55 @@
     <script>
       /*
   6Задание
-  Функция убирающая все совпадающие элементы из массива "а".
+  Функция убирающая все совпадающие элементы массива "b" из массива "а".
   b.includes(e) returns true if array b contains element e. "logical not" inverses that, so !b.includes(e) returns false if array b contains element e and true othewise. so filter leaves only elements, absent in array b.
   b.includes(e) возвращает true, если массив b содержит элемент e. «логическое не» инвертирует это, поэтому !b.includes(e) возвращает false, если массив b содержит элемент e, и true в противном случае. поэтому фильтр оставляет только элементы, отсутствующие в массиве b.
   */
       function array_diff(a, b) {
         return a.filter((e) => !b.includes(e));
+      }
+    </script>
+    <script>
+      /*7Задание
+      Функция приводящая массив чисел в строку определённого шаблоном формата
+      1 вариант идеальный
+      2 вариант мой
+      */
+      function createPhoneNumber(numbers) {
+        var format = "(xxx) xxx-xxxx";
+
+        for (var i = 0; i < numbers.length; i++) {
+          format = format.replace("x", numbers[i]);
+        }
+
+        return format;
+      }
+
+      function createPhoneNumber(numbers) {
+        let threeNums = "";
+        let sixNums = "";
+        let tenNums = "";
+        threeNums = numbers
+          .toString()
+          .split(",")
+          .join("")
+          .substr(0, 3)
+          .padEnd(5, ") ")
+          .padStart(6, "(");
+        sixNums = numbers
+          .toString()
+          .split(",")
+          .join("")
+          .substr(3, 3)
+          .padEnd(4, "-")
+          .padStart(10, threeNums);
+        tenNums = numbers
+          .toString()
+          .split(",")
+          .join("")
+          .substr(6, 4)
+          .padStart(14, sixNums);
+        return tenNums;
       }
     </script>
   </body>
