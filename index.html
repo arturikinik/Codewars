@@ -157,5 +157,25 @@
         return tenNums;
       }
     </script>
+    <script>
+      /*Задание 8
+      Нарциссическое число (или число Армстронга) — это положительное число, представляющее собой сумму собственных цифр, каждая из которых возведена в степень количества цифр в данном основании. В этом Ката мы ограничимся десятичными числами (с основанием 10).
+      функция проверяет является ли число нарц. или нет и возвращает true or false соответственно
+      */
+      function narcissistic(value) {
+        let sum = 0;
+        let length = value.toString().split("").length;
+        sum = value
+          .toString()
+          .split("")
+          .map((num) => Math.pow(+num, length))
+          .reduce((partialSum, a) => partialSum + a, 0);
+        if (sum == value) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    </script>
   </body>
 </html>
